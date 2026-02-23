@@ -21,67 +21,43 @@ body{
   font-family:'Poppins',sans-serif;
   background:linear-gradient(160deg,#0f2027,#1c3a3a,#134e4a);
   color:#fff;
-  padding:30px 15px;
+  padding:20px;
 }
 
+/* HEADER */
 h1{text-align:center;margin-bottom:5px;}
-.subtitle{text-align:center;color:var(--accent);margin-bottom:30px;}
+.subtitle{text-align:center;color:var(--accent);margin-bottom:20px;}
 
+/* CONTAINER */
 .container{
   max-width:1100px;
   margin:auto;
   background:#fff;
   color:#333;
   border-radius:20px;
-  padding:30px;
+  padding:20px;
   box-shadow:0 15px 60px rgba(0,0,0,0.4);
 }
 
 /* HEADER TANGGAL */
-.day-header{
-  text-align:center;
-  margin-bottom:20px;
-}
+.day-header{text-align:center;margin-bottom:15px;}
+.day-name{font-size:22px;font-weight:700;}
+.date-info{font-size:14px;color:#555;}
 
-.day-name{
-  font-size:22px;
-  font-weight:700;
-}
+/* PROGRESS */
+.progress-bar{height:10px;background:#eee;border-radius:20px;overflow:hidden;margin-bottom:10px;}
+.progress{height:100%;width:0%;background:var(--success);transition:0.3s;}
+.stats{display:flex;justify-content:space-between;font-size:14px;margin-bottom:15px;}
 
-.date-info{
-  font-size:14px;
-  color:#555;
-}
-
-/* ================= SCHEDULE ================= */
-.progress-bar{
-  height:10px;background:#eee;border-radius:20px;overflow:hidden;margin-bottom:10px;
-}
-.progress{
-  height:100%;width:0%;background:var(--success);transition:0.3s;
-}
-
-.stats{
-  display:flex;justify-content:space-between;font-size:14px;margin-bottom:20px;
-}
-
-.entry{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:10px;border-radius:10px;margin-bottom:6px;background:#f9f9f9;
-  transition:0.3s;
-}
-
+/* SCHEDULE */
+.entry{display:flex;align-items:center;justify-content:space-between;padding:10px;border-radius:10px;margin-bottom:6px;background:#f9f9f9;transition:0.3s;}
 .entry.done{opacity:0.6;text-decoration:line-through;}
-
-.entry.highlight{
-  background:var(--highlight);
-  border-left:4px solid #f39c12;
-}
-
+.entry.highlight{background:var(--highlight);border-left:4px solid #f39c12;}
 .time{width:30%;font-weight:600;}
 .activity{width:55%;}
 .checkbox{width:15%;text-align:right;}
 
+/* BUTTON */
 button{
   background:var(--secondary);
   color:#fff;
@@ -92,79 +68,37 @@ button{
   margin-top:10px;
 }
 
-/* ================= DONUT ================= */
-.donut-wrapper{
-  display:flex;
-  justify-content:space-between;
-  flex-wrap:wrap;
-  margin-top:40px;
-}
+/* DONUT & HISTOGRAM */
+.donut-wrapper{display:flex;justify-content:space-between;flex-wrap:wrap;margin-top:20px;}
+.donut{width:220px;height:220px;border-radius:50%;background:conic-gradient(var(--success) 0deg, #e0e0e0 0deg);display:flex;align-items:center;justify-content:center;position:relative;margin-bottom:20px;}
+.donut::after{content:"";width:150px;height:150px;background:#fff;border-radius:50%;position:absolute;}
+.donut span{position:relative;font-weight:700;font-size:26px;}
+.histogram{flex:1;margin-left:20px;}
+.bar{background:#e0e0e0;height:18px;margin-bottom:8px;border-radius:10px;overflow:hidden;}
+.bar-fill{height:100%;background:var(--success);text-align:right;font-size:11px;color:#fff;padding-right:5px;}
 
-.donut{
-  width:220px;
-  height:220px;
-  border-radius:50%;
-  background:conic-gradient(var(--success) 0deg, #e0e0e0 0deg);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  position:relative;
-}
-
-.donut::after{
-  content:"";
-  width:150px;
-  height:150px;
-  background:#fff;
-  border-radius:50%;
-  position:absolute;
-}
-
-.donut span{
-  position:relative;
-  font-weight:700;
-  font-size:26px;
-}
-
-.histogram{
-  flex:1;
-  margin-left:40px;
-}
-
-.bar{
-  background:#e0e0e0;
-  height:18px;
-  margin-bottom:8px;
-  border-radius:10px;
-  overflow:hidden;
-}
-
-.bar-fill{
-  height:100%;
-  background:var(--success);
-  text-align:right;
-  font-size:11px;
-  color:#fff;
-  padding-right:5px;
-}
-
-table{
-  width:100%;
-  border-collapse:collapse;
-  margin-top:30px;
-  font-size:12px;
-}
-th,td{
-  border:1px solid #ddd;
-  padding:5px;
-  text-align:center;
-}
-th{
-  background:#134e4a;
-  color:#fff;
-}
+/* TABLE */
+table{width:100%;border-collapse:collapse;margin-top:20px;font-size:12px;}
+th,td{border:1px solid #ddd;padding:5px;text-align:center;}
+th{background:#134e4a;color:#fff;}
 .success{color:var(--success);font-weight:600;}
 .fail{color:var(--danger);font-weight:600;}
+
+/* RESPONSIVE */
+@media(max-width:992px){
+  .donut-wrapper{flex-direction:column;align-items:center;}
+  .histogram{margin-left:0;width:100%;}
+}
+
+@media(max-width:600px){
+  body{padding:15px;}
+  .container{padding:15px;}
+  .day-name{font-size:18px;}
+  .progress-bar{height:8px;}
+  .time,.activity,.checkbox{font-size:12px;}
+  table{font-size:10px;}
+  button{width:100%;}
+}
 </style>
 </head>
 
@@ -175,19 +109,19 @@ th{
 
 <div class="container">
 
-<div class="day-header">
-  <div class="day-name" id="dayName"></div>
-  <div class="date-info" id="dateInfo"></div>
-</div>
+  <div class="day-header">
+    <div class="day-name" id="dayName"></div>
+    <div class="date-info" id="dateInfo"></div>
+  </div>
 
-<div class="progress-bar">
-  <div class="progress" id="progress"></div>
-</div>
+  <div class="progress-bar">
+    <div class="progress" id="progress"></div>
+  </div>
 
-<div class="stats">
-  <div id="progressText"></div>
-  <div id="streak"></div>
-</div>
+  <div class="stats">
+    <div id="progressText"></div>
+    <div id="streak"></div>
+  </div>
 
   <div>
     <strong>WORDS OF ENCOURAGEMENT</strong><br>
@@ -199,32 +133,30 @@ th{
 
   <br><br>
   
-<div id="schedule"></div>
+  <div id="schedule"></div>
 
-<button onclick="resetToday()">Reset Hari Ini</button>
+  <button onclick="resetToday()">Reset Hari Ini</button>
 
-<hr>
+  <hr>
 
-<h3>Filter Progress Berdasarkan Tanggal</h3>
-Dari: <input type="date" id="startDate">
-Sampai: <input type="date" id="endDate">
-<button onclick="searchProgress()">Cari</button>
-<button onclick="renderHistogram()">Reset</button>
+  <h3>Filter Progress Berdasarkan Tanggal</h3>
+  Dari: <input type="date" id="startDate">
+  Sampai: <input type="date" id="endDate">
+  <button onclick="searchProgress()">Cari</button>
+  <button onclick="renderHistogram()">Reset</button>
 
-<div class="donut-wrapper">
-  <div class="donut" id="donutChart">
-    <span id="donutText">0%</span>
+  <div class="donut-wrapper">
+    <div class="donut" id="donutChart">
+      <span id="donutText">0%</span>
+    </div>
+    <div class="histogram" id="histogram"></div>
   </div>
-  <div class="histogram" id="histogram"></div>
-</div>
 
-<div id="summaryTable"></div>
-
+  <div id="summaryTable"></div>
 </div>
 
 <script>
-
-/* ================= BASE SCHEDULE ================= */
+/* BASE SCHEDULE */
 const baseSchedule = [
 ["03.00 - 03.40","Bangun, Tahajud & doa malam"],
 ["03.40 - 04.30","Sahur & persiapan Subuh"],
@@ -251,100 +183,70 @@ const todayKey = new Date().toDateString();
 let savedData = JSON.parse(localStorage.getItem(todayKey)) || {};
 let streakData = JSON.parse(localStorage.getItem("ramadhanStreak")) || {lastDate:null,streak:0};
 
-/* ================= TANGGAL & HARI ================= */
+/* UPDATE HEADER */
 function updateHeader(){
   const now=new Date();
   const days=["Minggu","Senin","Selasa","Rabu","Kamis","Jumat","Sabtu"];
   let today=days[now.getDay()];
-
-  if(today==="Minggu"){
-    document.getElementById("dayName").textContent="MINGGU | AHAD";
-  }else{
-    document.getElementById("dayName").textContent=today.toUpperCase();
-  }
-
+  document.getElementById("dayName").textContent=(today==="Minggu"?"MINGGU | AHAD":today.toUpperCase());
   const masehi=now.toLocaleDateString("id-ID",{day:"2-digit",month:"long",year:"numeric"});
   const hijri=new Intl.DateTimeFormat("id-TN-u-ca-islamic",{day:"2-digit",month:"long",year:"numeric"}).format(now);
-
-  document.getElementById("dateInfo").textContent=
-  `[ ${masehi} M | ${hijri} H ]`;
+  document.getElementById("dateInfo").textContent=`[ ${masehi} M | ${hijri} H ]`;
 }
 
-/* ================= RENDER SCHEDULE ================= */
+/* RENDER SCHEDULE */
 function renderSchedule(){
   const container=document.getElementById("schedule");
   container.innerHTML="";
-
   const now=new Date();
   const currentMinutes=now.getHours()*60+now.getMinutes();
-
   let upcomingIndexes=[];
-
   baseSchedule.forEach((item,index)=>{
     const [hour,minute]=item[0].split(":");
     const totalMin=parseInt(hour)*60+parseInt(minute);
-    if(totalMin>=currentMinutes){
-      upcomingIndexes.push(index);
-    }
+    if(totalMin>=currentMinutes) upcomingIndexes.push(index);
   });
-
   const highlightIndexes=upcomingIndexes.slice(0,2);
-
   baseSchedule.forEach((item,index)=>{
     const div=document.createElement("div");
     div.className="entry";
-
     if(savedData[index]) div.classList.add("done");
     if(highlightIndexes.includes(index)) div.classList.add("highlight");
-
     div.innerHTML=`
       <div class="time">${item[0]}</div>
       <div class="activity">${item[1]}</div>
       <div class="checkbox">
-        <input type="checkbox" ${savedData[index]?"checked":""}
-        onchange="toggleTask(${index})">
-      </div>
-    `;
+        <input type="checkbox" ${savedData[index]?"checked":""} onchange="toggleTask(${index})">
+      </div>`;
     container.appendChild(div);
   });
-
   updateProgress();
 }
 
-/* ================= STREAK ================= */
+/* STREAK */
 function updateStreak(percent){
   const yesterday=new Date();
   yesterday.setDate(yesterday.getDate()-1);
   const yesterdayKey=yesterday.toDateString();
-
   if(percent===100){
-    if(streakData.lastDate===yesterdayKey){
-      streakData.streak+=1;
-    }else if(streakData.lastDate!==todayKey){
-      streakData.streak=1;
-    }
+    if(streakData.lastDate===yesterdayKey) streakData.streak+=1;
+    else if(streakData.lastDate!==todayKey) streakData.streak=1;
     streakData.lastDate=todayKey;
     localStorage.setItem("ramadhanStreak",JSON.stringify(streakData));
   }
-
-  document.getElementById("streak").textContent=
-  "🔥 Streak: "+streakData.streak+" hari";
+  document.getElementById("streak").textContent="🔥 Streak: "+streakData.streak+" hari";
 }
 
-/* ================= UPDATE PROGRESS ================= */
+/* UPDATE PROGRESS */
 function updateProgress(){
   const total=baseSchedule.length;
   const done=Object.values(savedData).filter(v=>v).length;
   const percent=Math.round((done/total)*100);
-
   document.getElementById("progress").style.width=percent+"%";
-  document.getElementById("progressText").textContent=
-  `${done}/${total} selesai (${percent}%)`;
-
+  document.getElementById("progressText").textContent=`${done}/${total} selesai (${percent}%)`;
   let history=JSON.parse(localStorage.getItem("progressHistory"))||{};
   history[todayKey]=percent;
   localStorage.setItem("progressHistory",JSON.stringify(history));
-
   updateStreak(percent);
   updateDonut();
   renderHistogram();
@@ -357,28 +259,22 @@ function toggleTask(index){
   renderSchedule();
 }
 
-/* ================= DONUT ================= */
+/* DONUT */
 function updateDonut(){
   let history=JSON.parse(localStorage.getItem("progressHistory"))||{};
   let values=Object.values(history);
   if(values.length===0) return;
-
   let avg=Math.round(values.reduce((a,b)=>a+b,0)/values.length);
-
-  document.getElementById("donutChart").style.background=
-  `conic-gradient(#4CAF50 ${avg*3.6}deg, #e0e0e0 0deg)`;
-
+  document.getElementById("donutChart").style.background=`conic-gradient(#4CAF50 ${avg*3.6}deg, #e0e0e0 0deg)`;
   document.getElementById("donutText").innerText=avg+"%";
 }
 
-/* ================= HISTOGRAM ================= */
+/* HISTOGRAM */
 function renderHistogram(filteredData=null){
   const container=document.getElementById("histogram");
   container.innerHTML="<h4>Progress</h4>";
-
   let history=JSON.parse(localStorage.getItem("progressHistory"))||{};
   let data=filteredData || Object.entries(history).slice(-7);
-
   data.forEach(([date,percent])=>{
     const bar=document.createElement("div");
     bar.className="bar";
@@ -396,40 +292,29 @@ function searchProgress(){
   const start=new Date(document.getElementById("startDate").value);
   const end=new Date(document.getElementById("endDate").value);
   if(!start||!end) return;
-
   let history=JSON.parse(localStorage.getItem("progressHistory"))||{};
   let filtered=[];
-
   Object.entries(history).forEach(([date,percent])=>{
     let d=new Date(date);
-    if(d>=start && d<=end){
-      filtered.push([date,percent]);
-    }
+    if(d>=start && d<=end) filtered.push([date,percent]);
   });
-
   renderHistogram(filtered);
 }
 
-/* ================= TABLE ================= */
+/* TABLE */
 function updateTable(){
   let html="<table><tr><th>No</th><th>Tanggal</th><th>Progress</th></tr>";
   let history=JSON.parse(localStorage.getItem("progressHistory"))||{};
-  
-  let no = 1; // mulai dari 1
-  
+  let no=1;
   Object.entries(history).forEach(([date,percent])=>{
-    html+=`<tr>
-              <td>${no}</td>
-              <td>${date}</td>
-              <td>${percent}%</td>
-           </tr>`;
-    no++; // tambah 1 setiap baris
+    html+=`<tr><td>${no}</td><td>${date}</td><td>${percent}%</td></tr>`;
+    no++;
   });
-  
   html+="</table>";
   document.getElementById("summaryTable").innerHTML=html;
 }
 
+/* RESET HARI INI */
 function resetToday(){
   localStorage.removeItem(todayKey);
   savedData={};
@@ -444,5 +329,6 @@ renderHistogram();
 updateTable();
 
 </script>
+
 </body>
 </html>
